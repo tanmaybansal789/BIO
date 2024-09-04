@@ -77,19 +77,19 @@ func Own(v, hex, ed int) bool {
 			nhex = h - 4 - x
 		}
 	case 1:
-		if hex % 5 > 0 { // if not on the right edge
-            nhex = h + 1
+		if hex % 5 > 0 { 
+            		nhex = h + 1
 		}
 	case 2:
-		if hex < 21 && (hex % 5 > 0 || row % 2 == 0) { // if not on the top edge and either not on the right edge or an even row
+		if hex < 21 && (hex % 5 > 0 || row % 2 == 0) {
 			nhex = h + 5 + y
 		}
 	case 3:
-		if hex < 21 && (hex % 5 != 1 || row % 2 == 1) { // if not on the bottom edge and either not on the left edge or an odd row
+		if hex < 21 && (hex % 5 != 1 || row % 2 == 1) {
 			nhex = h + 4 + y
 		}
 	case 4:
-		if hex % 5 != 1 { // if not on the left edge
+		if hex % 5 != 1 {
 			nhex = h - 1
 		}
 	case 5:
