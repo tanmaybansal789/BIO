@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func numCombinations(ranges []InclRange) int {
+func NumCombinations(ranges []InclRange) int {
 	count := 1
 	for _, r := range ranges {
 		count *= (r.end - r.start + 1)
@@ -10,11 +10,11 @@ func numCombinations(ranges []InclRange) int {
 	return count
 }
 
-func nthCombination(ranges []InclRange, n int) []int {
+func NthCombination(ranges []InclRange, n int) []int {
 	combination := make([]int, len(ranges))
 
 	for i := 0; i < len(ranges); i++ {
-		blockSize := numCombinations(ranges[i+1:])
+		blockSize := NumCombinations(ranges[i+1:])
 
 		indexInRange := (n - 1) / blockSize
 		combination[i] = ranges[i].start + indexInRange
@@ -75,7 +75,7 @@ func main() {
 		carToParkingPreferences[carIdx] = InclRange{start, end}
 	}
 
-	finalParking := nthCombination(carToParkingPreferences, n)
+	finalParking := NthCombination(carToParkingPreferences, n)
     for _, parking := range finalParking {
         fmt.Printf("%c", 'A' + parking)
     }
